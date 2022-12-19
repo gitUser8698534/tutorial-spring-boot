@@ -14,9 +14,6 @@ import javax.sql.DataSource;
 
 @Configuration
 public class DataSourceConfig {
-
-    // TODO 2. batch 용 DataSource 에 초기화 sql 설정
-    // TODO 4. batch 라이브러리 내에 sql resource 디렉토리로 이동하여 사용
     @Bean
     @Primary
     public DataSourceInitializer batchDataSourceInitializer(@Qualifier("batchDataSource") DataSource dataSource) {
@@ -31,8 +28,6 @@ public class DataSourceConfig {
 
         return initializer;
     }
-
-    // TODO 3. 테스트로 초기화 시킬 sql 설정
     @Bean
     public DataSourceInitializer localDataSourceInitializer(@Qualifier("localDataSource") DataSource dataSource) {
         ResourceDatabasePopulator databasePopulate = new ResourceDatabasePopulator();
@@ -46,8 +41,6 @@ public class DataSourceConfig {
         return initializer;
     }
 
-    // TODO 1. DataSource 3개 등록
-    // 다른 곳에서 사용시 Qualifier 어노테이션에 해당 DataSource 빈 이름으로 주입
     @Bean
     @Primary
     public DataSource localDataSource(@Value("${spring.datasource.local.url}") String url,

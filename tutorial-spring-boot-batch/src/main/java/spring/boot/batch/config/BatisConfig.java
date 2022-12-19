@@ -13,10 +13,6 @@ import javax.sql.DataSource;
 
 @Configuration
 public class BatisConfig {
-    // TODO 5. MyBatis 사용을 위한 SqlSessionFactory, SqlSessionTemplate 설정
-    // TODO 5.1 MyBatis 사용하는 DataSource 가 여러개이므로 여러개로 나눠서 설정
-    // TODO 5.2 Batch 용 DataSource 는 TransactionManager 설정
-    // TODO 5.3 MyBatis Mapper Interface 는 서로 다른 SqlSessionFactory 에서도 공통으로 사용할 수 있
     @Bean
     public DataSourceTransactionManager batchTransactionManager(@Qualifier("batchDataSource") DataSource batchDataSource){
         return new DataSourceTransactionManager(batchDataSource);
