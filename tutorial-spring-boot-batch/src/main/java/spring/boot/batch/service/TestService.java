@@ -7,7 +7,6 @@ import spring.boot.batch.entity.TestEntity;
 
 import java.util.List;
 
-// TODO 0. service 생성
 @Service
 public class TestService {
     private final SqlSessionTemplate localTemplate;
@@ -20,7 +19,6 @@ public class TestService {
     }
 
     List<TestEntity> getAll(){
-        // TODO 0.1 MyBatis Mapper Interface 에 등록된 쿼리 함수를 문자열로 실행
         return localTemplate.selectList("selectAll");
     }
 }
